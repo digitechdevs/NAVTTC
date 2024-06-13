@@ -4,6 +4,8 @@ import 'package:navttc/src/components/primary_button.dart';
 import 'package:navttc/src/components/selectable_tile.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/modules/instructor/presentation/providers/instructor_provider.dart';
+import 'package:navttc/src/modules/instructor/presentation/screens/instructor_attendance_details.dart';
+import 'package:navttc/src/modules/instructor/presentation/screens/instructor_details.dart';
 
 class InstructorHome extends StatelessWidget {
   const InstructorHome({super.key});
@@ -15,7 +17,7 @@ class InstructorHome extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ScreenHeader(showLogo: true),
+            const ScreenHeader(showLogo: false),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Consumer(
@@ -30,6 +32,15 @@ class InstructorHome extends StatelessWidget {
                         padding: EdgeInsets.zero,
                         itemBuilder: (_, i) {
                           return SelectableTile(
+                            onTap: () {
+                              if (i == 0) {
+                                AppRouter.push(const InstructorDetails());
+                              }
+                              if (i == 1) {
+                                AppRouter.push(const AttendanceDetails());
+                              }
+                              if (i == 2) {}
+                            },
                             title: instructor.options[i].title,
                             selected: instructor.options[i].selected,
                           );

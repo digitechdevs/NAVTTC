@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool? obscureText, enabled;
   final String? label;
+  final Color? fillColor, borderColor;
   final int? maxLines;
 
   const CustomTextField({
@@ -25,6 +26,8 @@ class CustomTextField extends StatelessWidget {
     this.textCapitalization,
     this.maxLines,
     this.enabled,
+    this.fillColor,
+    this.borderColor,
   });
 
   @override
@@ -44,18 +47,18 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         counterText: "",
         filled: true,
-        fillColor: AppColors.fieldBg,
+        fillColor: fillColor ?? AppColors.fieldBg,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.subtitle),
+          borderSide: BorderSide(color: borderColor ?? AppColors.subtitle),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppColors.subtitle),
+          borderSide: BorderSide(color: borderColor ?? AppColors.subtitle),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: AppColors.subtitle),
+          borderSide: BorderSide(color: borderColor ?? AppColors.subtitle),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
