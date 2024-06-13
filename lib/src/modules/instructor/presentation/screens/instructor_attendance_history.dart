@@ -19,66 +19,60 @@ class InstructorAttendanceHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-      Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ScreenHeader(),
-            10.ph,
-       Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomText(
-              'Attendance History',
-                alignment: Alignment.center,
-                 textStyle: AppTextStyles.middleBlackBoldTextStyle,
-            ),
-            10.ph,
-            
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: attendanceDates.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        CustomText(
-                        "Attendance Date:",
-                        alignment: Alignment.centerLeft,
-                        textStyle: AppTextStyles.middleBlackBoldTextStyle,
-                      ),
-                      5.pw,
-                        CustomText(
-                          attendanceDates[index],
-                        ),
-                      ],
-                    ),
-                    8.ph,
-                    Container(
-                      height: 1,
-                      color: Colors.grey,
-                    ),
-                    16.ph
-                  ],
-                );
-              },
-            ),
-            Center(
-              child: PrimaryButton(
-                onTap: () {  }, 
-                text: 'close',textColor: AppColors.primaryWhite,
-            
+            const ScreenHeaderWithButton(),
+            18.ph,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.sp),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CustomText(
+                    'Attendance History',
+                    alignment: Alignment.center,
+                    textStyle: AppTextStyles.middleBlackBoldTextStyle,
+                  ),
+                  24.ph,
+                  ListView.separated(
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    itemCount: attendanceDates.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CustomText(
+                                "Attendance Date:",
+                                alignment: Alignment.centerLeft,
+                                textStyle:
+                                    AppTextStyles.middleBlackBoldTextStyle,
+                              ),
+                              5.pw,
+                              CustomText(
+                                attendanceDates[index],
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                    separatorBuilder: (_, i) => Divider(color: AppColors.borderGrey, height: 24.h),
+                  ),
+                  24.ph,
+                  PrimaryButton(
+                    onTap: () {},
+                    text: 'close',
+                    textColor: AppColors.primaryWhite,
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
           ],
         ),
       ),
