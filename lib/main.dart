@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/modules/authentication/presentation/screens/login_screen.dart';
+import 'package:navttc/src/modules/instructor/presentation/screens/instructor_attendance_history.dart';
 
 void main() {
   runApp(
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
           useMaterial3: true,
         ),
-        home: const LoginScreen(),
+        home:  InstructorAttendanceHistory(),
       ),
     );
   }
