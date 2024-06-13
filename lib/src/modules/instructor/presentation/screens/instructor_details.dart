@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:navttc/src/components/bottom_rounded_header.dart';
 import 'package:navttc/src/components/clip_box.dart';
+import 'package:navttc/src/components/custom_text.dart';
 import 'package:navttc/src/components/custom_textfield.dart';
 import 'package:navttc/src/components/image_box.dart';
 import 'package:navttc/src/components/primary_button.dart';
+import 'package:navttc/src/core/theme/app_textstyles.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
 
@@ -23,6 +25,13 @@ class InstructorDetails extends HookConsumerWidget {
               padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Column(
                 children: [
+                  CustomText(
+                    "Add/ Edit Instructor",
+                    alignment: Alignment.center,
+                    textStyle: AppTextStyles
+                        .middleBlackBoldTextStyle,
+                  ),
+                  12.ph,
                   CustomTextField(
                     label: "Select Trade",
                     fillColor: AppColors.primaryWhite,
