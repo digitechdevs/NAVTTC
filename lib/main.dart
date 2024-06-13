@@ -6,13 +6,13 @@ import 'package:navttc/src/modules/instructor/presentation/screens/instructor_at
 void main() {
   runApp(
     const ProviderScope(
-      child: MyApp(),
+      child: Navttc(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Navttc extends StatelessWidget {
+  const Navttc({super.key});
 
   @override
   Widget build(BuildContext context) {
