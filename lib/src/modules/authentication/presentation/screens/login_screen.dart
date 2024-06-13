@@ -13,6 +13,7 @@ import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
 import 'package:navttc/src/modules/authentication/presentation/providers/auth_provider.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_home.dart';
+import 'package:navttc/src/modules/student/presentation/screens/student_home.dart';
 
 class LoginScreen extends HookWidget {
   const LoginScreen({super.key});
@@ -147,7 +148,11 @@ class LoginScreen extends HookWidget {
                                 text: "LOGIN",
                                 onTap: () {
                                   if (!formKey.currentState!.validate()) {
-                                    AppRouter.pushReplace(const InstructorHome());
+                                    if (auth.selectedRole == Role.Instructor.name) {
+                                      AppRouter.pushReplace(const InstructorHome());
+                                    } else if (auth.selectedRole == Role.Student.name) {
+                                      AppRouter.pushReplace(const StudentHome());
+                                    }
                                   } else {
                                     Prompts.popMessenger("Please input correct information");
                                   }

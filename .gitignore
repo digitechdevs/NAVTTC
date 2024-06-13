@@ -4,3 +4,6 @@
 /.flutter-plugins
 /.metadata
 /.flutter-plugins-dependencies
+/.idea/Flutter_Plugins.xml
+/.dart_tool/package_config.json
+/.dart_tool/package_config_subset
