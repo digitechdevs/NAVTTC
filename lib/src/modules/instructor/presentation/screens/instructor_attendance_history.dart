@@ -67,7 +67,7 @@ class InstructorAttendanceHistory extends StatelessWidget {
                   24.ph,
                   PrimaryButton(
                     onTap: () {},
-                    text: 'close',
+                    text: 'Close',
                     textColor: AppColors.primaryWhite,
                   ),
                 ],
