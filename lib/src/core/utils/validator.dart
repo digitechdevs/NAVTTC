@@ -42,7 +42,7 @@ class Validator {
   static String? validatePass(value) {
     if (value.length <= 0) {
       return 'Please enter your password';
-    } else if (value.length <= 6) {
+    } else if (value.length < 6) {
       return 'Password must not be less than 6 characters';
     }
     return null;

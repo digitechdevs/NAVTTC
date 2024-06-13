@@ -106,7 +106,7 @@ class LoginScreen extends HookWidget {
                               CustomTextField(
                                 label: "Enter your password",
                                 controller: pass,
-                                validator: (val) => Validator.validatePass(val),
+                                validator: Validator.validatePass,
                                 obscureText: auth.isObscure,
                                 suffixIcon: GestureDetector(
                                   onTap: auth.onObscure,
@@ -147,7 +147,7 @@ class LoginScreen extends HookWidget {
                                 // loader: true,
                                 text: "LOGIN",
                                 onTap: () {
-                                  if (!formKey.currentState!.validate()) {
+                                  if (formKey.currentState!.validate()) {
                                     if (auth.selectedRole == Role.Instructor.name) {
                                       AppRouter.pushReplace(const InstructorHome());
                                     } else if (auth.selectedRole == Role.Student.name) {
