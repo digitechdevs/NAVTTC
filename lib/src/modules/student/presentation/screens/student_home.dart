@@ -5,7 +5,7 @@ import 'package:navttc/src/components/selectable_tile.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_attendance_details.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_attendance_history.dart';
-import 'package:navttc/src/modules/student/presentation/screens/provider/student_provider.dart';
+import 'package:navttc/src/modules/student/presentation/provider/student_provider.dart';
 import 'package:navttc/src/modules/student/presentation/screens/student_attendance.dart';
 
 class StudentHome extends StatelessWidget {
