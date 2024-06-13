@@ -1,13 +1,15 @@
 import 'package:navttc/src/core/utils/app_exports.dart';
 
-class ClipBox extends StatelessWidget {
+class ValueBox extends StatelessWidget {
   final IconData? icon;
+  final String? value;
   final VoidCallback? onTap;
 
-  const ClipBox({
+  const ValueBox({
     super.key,
-    this.onTap,
     this.icon,
+    this.onTap,
+    this.value,
   });
 
   @override
@@ -21,7 +23,14 @@ class ClipBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: AppColors.subtitle),
         ),
-        child: Icon(icon ?? Icons.attach_file_rounded),
+        child: Row(
+          children: [
+            10.pw,
+            Icon(icon ?? Icons.attach_file_rounded),
+            6.pw,
+            Text(value ?? "Select"),
+          ],
+        ),
       ),
     );
   }
