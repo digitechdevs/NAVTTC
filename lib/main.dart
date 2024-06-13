@@ -9,13 +9,13 @@ import 'package:navttc/src/modules/student/presentation/screens/student_home.dar
 void main() {
   runApp(
     const ProviderScope(
-      child: MyApp(),
+      child: Navttc(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Navttc extends StatelessWidget {
+  const Navttc({super.key});
 
   @override
   Widget build(BuildContext context) {

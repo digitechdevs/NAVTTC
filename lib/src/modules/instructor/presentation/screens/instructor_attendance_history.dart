@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:navttc/src/components/bottom_rounded_header.dart';
 import 'package:navttc/src/components/primary_button.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
+import 'package:navttc/src/modules/instructor/presentation/widgets/attendance_detailed_view.dart';
 
 import '../../../../components/custom_text.dart';
 import '../../../../core/theme/app_textstyles.dart';
@@ -42,27 +43,34 @@ class InstructorAttendanceHistory extends StatelessWidget {
                     padding: EdgeInsets.zero,
                     itemCount: attendanceDates.length,
                     itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              CustomText(
-                                "Attendance Date:",
-                                alignment: Alignment.centerLeft,
-                                textStyle:
-                                    AppTextStyles.middleBlackBoldTextStyle,
-                              ),
-                              5.pw,
-                              CustomText(
-                                attendanceDates[index],
-                              ),
-                            ],
-                          ),
-                        ],
+                      return InkWell(
+                        onTap: () {
+                          attendanceDetailsAlert(context);
+                        },
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                CustomText(
+                                  "Attendance Date: ",
+                                  alignment: Alignment.centerLeft,
+                                  textStyle:
+                                      AppTextStyles.middleBlackBoldTextStyle,
+                                ),
+                                CustomText(
+                                  attendanceDates[index],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       );
                     },
-                    separatorBuilder: (_, i) => Divider(color: AppColors.borderGrey, height: 24.h),
+                    separatorBuilder: (_, i) => Divider(
+                      color: AppColors.borderGrey,
+                      height: 24.h,
+                    ),
                   ),
                   24.ph,
                   PrimaryButton(

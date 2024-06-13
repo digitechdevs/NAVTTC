@@ -1,12 +1,6 @@
 /build/
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/.filecache
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/app.dill
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/debug_android_application.stamp
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/flutter_assets.d
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/gen_dart_plugin_registrant.stamp
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/gen_localizations.stamp
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/kernel_snapshot.d
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/kernel_snapshot.stamp
-/.dart_tool/flutter_build/159744c7f2a6907ee2e6867984fa0b69/outputs.json
-/.dart_tool/package_config.json
-/.dart_tool/package_config_subset
+/.dart_tool/
+/.idea
+/.flutter-plugins
+/.metadata
+/.flutter-plugins-dependencies
