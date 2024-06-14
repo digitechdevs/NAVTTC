@@ -9,6 +9,12 @@ class AuthProvider extends ChangeNotifier {
 
   bool checked = false;
 
+  get image => null;
+
+  get pickedFile => null;
+
+  get loadedFile => null;
+
   void onCheck() {
     checked = !checked;
     notifyListeners();

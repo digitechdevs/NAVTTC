@@ -71,7 +71,7 @@ void attendanceDetailsAlert(BuildContext context) {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
-              const ImageBox(),
+              const ImageBox(image: null,),
               150.ph,
             ],
           ),
