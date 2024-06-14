@@ -37,7 +37,7 @@ class AppHelpers {
     return await picker.pickImage(source: ImageSource.camera);
   }
 
-  Future<File?> pickSingleFile(context) async {
+  static Future<File?> pickSingleFile() async {
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.custom,

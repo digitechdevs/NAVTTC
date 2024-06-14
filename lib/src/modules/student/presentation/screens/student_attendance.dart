@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:navttc/src/components/bottom_rounded_header.dart';
 import 'package:navttc/src/components/clip_box.dart';
@@ -9,13 +10,22 @@ import 'package:navttc/src/components/primary_button.dart';
 import 'package:navttc/src/components/value_box.dart';
 import 'package:navttc/src/core/theme/app_textstyles.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
+import 'package:navttc/src/core/utils/app_helpers.dart';
 import 'package:navttc/src/core/utils/validator.dart';
+import 'package:navttc/src/modules/student/presentation/provider/student_provider.dart';
+
+import '../../../instructor/presentation/providers/instructor_provider.dart';
 
 class StudentAttendanceDetails extends HookConsumerWidget {
   const StudentAttendanceDetails({super.key});
 
   @override
   Widget build(context, ref) {
+    final date = useState<DateTime?>(null);
+    final time = useState<TimeOfDay?>(null);
+    var source = ref.watch(studentProvider);
+
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -36,17 +46,21 @@ class StudentAttendanceDetails extends HookConsumerWidget {
                     children: [
                       Expanded(
                         child: ValueBox(
-                          value: "Date",
+                          value: date.value !=null
+                          ? '${date.value!.day}/${date.value!.month}/${date.value!.year}'
+                          : "Date",
                           icon: CupertinoIcons.calendar_today,
-                          onTap: () {},
+                          onTap: () => AppHelpers.handleDateTimePicker(context, date, time, true),
                         ),
                       ),
                       6.pw,
                       Expanded(
                         child: ValueBox(
-                          value: "Time",
+                          value: time.value !=null
+                          ?time.value!.format(context)
+                              : "Time",
                           icon: CupertinoIcons.time,
-                          onTap: () {},
+                          onTap: () => AppHelpers.handleDateTimePicker(context, date, time, false),
                         ),
                       ),
                     ],
@@ -67,7 +81,10 @@ class StudentAttendanceDetails extends HookConsumerWidget {
                   ),
                   8.ph,
                   ImageBox(
-                    onTap: () {},
+                    onTap: () {
+                      source.pickFile();
+                    },
+                    pickedFile: source.loadedFile,
                   ),
 
                   8.ph,
