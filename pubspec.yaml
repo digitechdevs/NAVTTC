@@ -53,6 +53,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   image_picker: ^1.0.7
   google_fonts: 6.1.0
+  file_picker: ^7.0.2
 
 
 dev_dependencies:

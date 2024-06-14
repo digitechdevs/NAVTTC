@@ -15,7 +15,8 @@ class ScreenHeader extends StatelessWidget {
       width: AppSize.maxWidth,
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
       ),
       child: SafeArea(
         child: Row(
@@ -23,10 +24,12 @@ class ScreenHeader extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             (showLogo ?? true)
-                ? Image.asset(AppAssets.logo)
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Image.asset(AppAssets.logo),
+                  )
                 : const SizedBox.shrink(),
-            (showLogo ?? true)
-                ? 20.pw : 0.pw,
+            (showLogo ?? true) ? 20.pw : 0.pw,
             CustomText(
               "NAVTTC Monitoring",
               alignment: Alignment.center,
@@ -51,7 +54,10 @@ class ScreenHeaderWithButton extends StatelessWidget {
       width: AppSize.maxWidth,
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
       ),
       child: SafeArea(
         child: Row(

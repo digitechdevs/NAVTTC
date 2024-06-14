@@ -28,6 +28,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<key>NSCameraUsageDescription</key>
+	<string>App requires media library access to capture user selfie for attendance</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App requires media library access to upload product image</string>
+
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

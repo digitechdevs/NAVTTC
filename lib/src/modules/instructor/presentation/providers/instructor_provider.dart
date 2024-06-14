@@ -25,15 +25,14 @@ class InstructorProvider extends ChangeNotifier {
       selected: false,
     ),
   ];
+  XFile? pickedClassPicture;
+  File? loadedClassPicture;
 
-  XFile? pickedFile;
-  File? loadedFile;
-
-  pickFile() async {
-    pickedFile = await AppHelpers.pick();
-    appPrint("***PATH: ${pickedFile!.name}***");
-    loadedFile = File(pickedFile!.path);
-    appPrint("***PATH: ${loadedFile!.absolute}***");
+  pickClassPicture() async {
+    pickedClassPicture = await AppHelpers.capture();
+    print("***PATH: ${pickedClassPicture!.name}***");
+    loadedClassPicture = File(pickedClassPicture!.path);
+    print("***PATH: ${loadedClassPicture!.absolute}***");
     notifyListeners();
   }
 }
