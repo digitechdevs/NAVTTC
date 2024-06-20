@@ -25,6 +25,7 @@ class InstructorHome extends StatelessWidget {
               child: Consumer(
                 builder: (_, ref, child) {
                   var instructor = ref.watch(instructorProvider);
+                  instructor.clearInstructorDetails();
                   return Column(
                     children: [
                       30.ph,

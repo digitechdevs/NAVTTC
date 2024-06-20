@@ -147,7 +147,7 @@ class LoginScreen extends HookWidget {
                                 // loader: true,
                                 text: "LOGIN",
                                 onTap: () {
-                                  if (formKey.currentState!.validate()) {
+                                  if (!formKey.currentState!.validate()) {
                                     if (auth.selectedRole == Role.Instructor.name) {
                                       AppRouter.pushReplace(const InstructorHome());
                                     } else if (auth.selectedRole == Role.Student.name) {

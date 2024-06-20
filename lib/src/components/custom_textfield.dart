@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
   final String? label;
   final Color? fillColor, borderColor;
   final int? maxLines;
+  final AutovalidateMode? autoValidateMode;
 
   const CustomTextField({
     super.key,
@@ -27,7 +28,7 @@ class CustomTextField extends StatelessWidget {
     this.maxLines,
     this.enabled,
     this.fillColor,
-    this.borderColor,
+    this.borderColor, this.autoValidateMode,
   });
 
   @override
@@ -40,7 +41,7 @@ class CustomTextField extends StatelessWidget {
       textCapitalization: textCapitalization ?? TextCapitalization.words,
       controller: controller,
       obscureText: obscureText ?? false,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      autovalidateMode: autoValidateMode ?? AutovalidateMode.onUserInteraction,
       keyboardType: keyboardType ?? TextInputType.text,
       validator: validator,
       maxLines: maxLines ?? 1,

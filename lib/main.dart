@@ -6,7 +6,8 @@ import 'package:navttc/src/modules/instructor/presentation/screens/instructor_ho
 import 'package:navttc/src/modules/student/presentation/screens/student_attendance.dart';
 import 'package:navttc/src/modules/student/presentation/screens/student_home.dart';
 
-void main() {
+void main() async {
+  await ScreenUtil.ensureScreenSize();
   runApp(
     const ProviderScope(
       child: Navttc(),

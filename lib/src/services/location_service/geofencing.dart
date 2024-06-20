@@ -38,17 +38,17 @@ class LocationService {
       _officeLocation.longitude,
     );
 
-    appPrint("***Distance*** $distance");
+    print("***Distance*** $distance");
 
     altitudeRounded = (position?.altitude ?? 0.0).roundToDouble();
 
     if ((distance <= _officeRadius)
         // && (altitudeRounded! >= _minAltitude && altitudeRounded! <= _maxAltitude)
         ) {
-      appPrint('In Office Premises');
+      print('In Office Premises');
       isInRadius = true;
     } else {
-      appPrint('Not In Office Premises');
+      print('Not In Office Premises');
       isInRadius = false;
     }
 
@@ -59,7 +59,7 @@ class LocationService {
     Position? position;
     try {
       LocationPermission permission = await Geolocator.checkPermission();
-      appPrint("Permission $permission");
+      print("Permission $permission");
 
       if (permission == LocationPermission.always ||
           permission == LocationPermission.whileInUse ||
@@ -69,18 +69,18 @@ class LocationService {
           desiredAccuracy: LocationAccuracy.best,
         );
 
-        appPrint("Position Altitude ${position.altitude}");
-        appPrint("Rounded Altitude $altitudeRounded");
-        appPrint("Position Latitude ${position.latitude}");
-        appPrint("Position longitude ${position.longitude}");
-        appPrint("Position floor ${position.floor}");
-        appPrint("Distance between Office & Current Position $distance");
+        print("Position Altitude ${position.altitude}");
+        print("Rounded Altitude $altitudeRounded");
+        print("Position Latitude ${position.latitude}");
+        print("Position longitude ${position.longitude}");
+        print("Position floor ${position.floor}");
+        print("Distance between Office & Current Position $distance");
       } else {
         await Geolocator.openLocationSettings();
         await Geolocator.openAppSettings();
       }
     } on PlatformException catch (e) {
-      appPrint("Location getting error $e");
+      print("Location getting error $e");
     }
     return position;
   }

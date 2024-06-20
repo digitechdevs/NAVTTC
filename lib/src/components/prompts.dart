@@ -67,11 +67,13 @@ class Prompts {
     );
   }
 
-  static void popMessenger(String message, {Duration? duration}) {
+  static void popMessenger(String message,
+      {Duration? duration, bool? isSuccess}) {
     ScaffoldMessenger.of(AppRouter.navKey.currentContext!).showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,
-        backgroundColor: AppColors.primaryBlack,
+        backgroundColor:
+            isSuccess == true ? AppColors.backgroundChemistColor : AppColors.errorRed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(13),
         ),
@@ -90,8 +92,8 @@ class Prompts {
                     color: AppColors.borderGrey,
                   ),
                 ),
-                child: const Icon(
-                  CupertinoIcons.exclamationmark,
+                child: Icon(
+                  isSuccess == true ? CupertinoIcons.check_mark : CupertinoIcons.exclamationmark,
                   // color: Colors.white,
                 ),
               ),
