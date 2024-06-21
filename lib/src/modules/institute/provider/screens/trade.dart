@@ -17,10 +17,11 @@ import 'package:navttc/src/modules/instructor/presentation/providers/instructor_
 import 'package:navttc/src/services/app_services/field_services.dart';
 
 import '../../../../components/prompts.dart';
+import '../../../../core/utils/app_enums.dart';
+import '../../../student/presentation/screens/student_home.dart';
 
-
-class InstructorDetails extends HookConsumerWidget {
-  const InstructorDetails({super.key});
+class Institutetrade extends HookConsumerWidget {
+  const Institutetrade({super.key});
 
   @override
   Widget build(context, ref) {

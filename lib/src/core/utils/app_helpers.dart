@@ -32,9 +32,9 @@ class AppHelpers {
     return await picker.pickImage(source: ImageSource.gallery);
   }
 
-  static Future<XFile?> capture() async {
+  static Future<XFile?> capture({CameraDevice? cameraDevice}) async {
     final ImagePicker picker = ImagePicker();
-    return await picker.pickImage(source: ImageSource.camera);
+    return await picker.pickImage(source: ImageSource.camera, preferredCameraDevice: CameraDevice.front);
   }
 
   static Future<File?> pickSingleFile() async {

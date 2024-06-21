@@ -12,6 +12,7 @@ import 'package:navttc/src/core/utils/app_enums.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
 import 'package:navttc/src/modules/authentication/presentation/providers/auth_provider.dart';
+import 'package:navttc/src/modules/institute/provider/screens/institue_home.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_home.dart';
 import 'package:navttc/src/modules/student/presentation/screens/student_home.dart';
 
@@ -62,12 +63,29 @@ class LoginScreen extends HookWidget {
                         onValueChanged: auth.onRoleChanged,
                       ),
                       34.ph,
-                      if (auth.selectedRole == Role.Instructor.name ||
-                          auth.selectedRole == Role.Student.name)
+                      // if (auth.selectedRole == Role.Instructor.name ||
+                      //     auth.selectedRole == Role.Student.name || auth.selectedRole == Role.Institute.name)
                         Form(
                           key: formKey,
                           child: Column(
                             children: [
+                              if (auth.selectedRole == Role.Institute.name)
+                              CustomText(
+                                "Institute Id",
+                                alignment: Alignment.centerLeft,
+                                textStyle: AppTextStyles.middleBlackTextStyle,
+                              ),
+                              if (auth.selectedRole == Role.Institute.name)
+                              18.ph,
+                              if (auth.selectedRole == Role.Institute.name)
+                              CustomTextField(
+                                label: "Institute Id",
+                                controller: email,
+                                textCapitalization: TextCapitalization.none,
+                                validator: Validator.validateEmail,
+                              ),
+                              if (auth.selectedRole == Role.Institute.name)
+                              30.ph,
                               CustomText(
                                 "Your email",
                                 alignment: Alignment.centerLeft,
@@ -153,11 +171,16 @@ class LoginScreen extends HookWidget {
                                     } else if (auth.selectedRole == Role.Student.name) {
                                       AppRouter.pushReplace(const StudentHome());
                                     }
+
+                                    else if (auth.selectedRole == Role.Institute.name) {
+                                      AppRouter.pushReplace(const InstituteHome());
+                                    }
                                   } else {
                                     Prompts.popMessenger("Please input correct information");
                                   }
                                 },
                               ),
+                              kBottomNavigationBarHeight.ph
                             ],
                           ),
                         ),

@@ -8,21 +8,29 @@ import 'package:navttc/src/core/utils/app_helpers.dart';
 import 'package:navttc/src/modules/instructor/domain/entities/instructor_option_entity.dart';
 import 'package:navttc/src/services/location_service/geofencing.dart';
 
-final instructorProvider =
-    ChangeNotifierProvider.autoDispose((_) => InstructorProvider());
+final instituteProvider =
+    ChangeNotifierProvider.autoDispose((_) => InstituteProvider());
 
-class InstructorProvider extends ChangeNotifier {
+class InstituteProvider extends ChangeNotifier {
   List<InstructorOptionsEntity> options = [
     InstructorOptionsEntity(
-      title: 'Instructor Details',
+      title: 'Institute Details',
       selected: true,
     ),
     InstructorOptionsEntity(
-      title: 'Attendance Details',
+      title: 'Institute profile',
       selected: false,
     ),
     InstructorOptionsEntity(
-      title: 'Attendance History',
+      title: 'Allied/Other Facilities',
+      selected: false,
+    ),
+    InstructorOptionsEntity(
+      title: 'Trade',
+      selected: false,
+    ),
+    InstructorOptionsEntity(
+      title: 'Add/Edit Details',
       selected: false,
     ),
   ];

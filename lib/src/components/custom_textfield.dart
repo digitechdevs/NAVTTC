@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -10,8 +11,9 @@ class CustomTextField extends StatelessWidget {
   final bool? obscureText, enabled;
   final String? label;
   final Color? fillColor, borderColor;
-  final int? maxLines;
+  final int? maxLines, maxLength;
   final AutovalidateMode? autoValidateMode;
+  final List<TextInputFormatter>? inputformater;
 
   const CustomTextField({
     super.key,
@@ -28,12 +30,13 @@ class CustomTextField extends StatelessWidget {
     this.maxLines,
     this.enabled,
     this.fillColor,
-    this.borderColor, this.autoValidateMode,
+    this.borderColor, this.autoValidateMode, this.maxLength, this.inputformater,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      inputFormatters: inputformater ?? [],
       enabled: enabled ?? true,
       textAlign: TextAlign.start,
       textAlignVertical: TextAlignVertical.top,
@@ -45,6 +48,7 @@ class CustomTextField extends StatelessWidget {
       keyboardType: keyboardType ?? TextInputType.text,
       validator: validator,
       maxLines: maxLines ?? 1,
+      maxLength: maxLength,
       decoration: InputDecoration(
         counterText: "",
         filled: true,
@@ -67,6 +71,7 @@ class CustomTextField extends StatelessWidget {
         ),
         hintText: label ?? "",
         isDense: true,
+        prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintStyle: TextStyle(
           color: AppColors.subtitle,

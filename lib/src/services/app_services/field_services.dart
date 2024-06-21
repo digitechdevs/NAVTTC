@@ -92,3 +92,69 @@ String capitalizeAllWordsInFullSentence(String str) {
   // appPrint('constructed: $constructedString');
   return constructedString;
 }
+
+class CNICInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    String newText = newValue.text;
+
+    // Remove all non-digit characters
+    newText = newText.replaceAll(RegExp(r'\D'), '');
+
+    // Insert hyphens at the correct positions
+    if (newText.length > 5) {
+      newText = '${newText.substring(0, 5)}-${newText.substring(5)}';
+    }
+    if (newText.length > 13) {
+      newText = '${newText.substring(0, 13)}-${newText.substring(13)}';
+    }
+
+    // Truncate to maximum length of 15 characters (13 digits + 2 hyphens)
+    if (newText.length > 15) {
+      newText = newText.substring(0, 15);
+    }
+
+    return TextEditingValue(
+      text: newText,
+      selection: TextSelection.collapsed(offset: newText.length),
+    );
+  }
+}
+class DynamicLengthFormatter extends TextInputFormatter {
+  final int maxLengthFor0;
+  final int maxLengthFor9;
+
+  DynamicLengthFormatter(
+      {required this.maxLengthFor0, required this.maxLengthFor9});
+
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.text.startsWith('0') && newValue.text.length > maxLengthFor0) {
+      return oldValue;
+    } else if (newValue.text.startsWith('9') &&
+        newValue.text.length > maxLengthFor9) {
+      return oldValue;
+    }
+    return newValue;
+  }
+}
+class PhoneNumberFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    String newText = newValue.text;
+
+    // Check if the text starts with "92"
+    if (newText.startsWith('92')) {
+      
+      // After "92", only allow "3" as the next character
+      if (newText.length == 3 && newText[2] != '3') {
+        return oldValue;
+      }
+    }
+
+    return newValue;
+  }
+}

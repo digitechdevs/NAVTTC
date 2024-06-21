@@ -1,7 +1,7 @@
 class Validator {
-  static String? validateName(String? value) {
+  static String? validateValue(String? value) {
     if (value!.isEmpty) {
-      return 'Please enter your name';
+      return 'Please enter some data';
     }
     Pattern pattern = r'^[a-z A-Z]+$';
     RegExp regex = RegExp(pattern.toString());
@@ -29,15 +29,25 @@ class Validator {
   }
 
   static String? validateMobile(String? value) {
-    if (value!.isEmpty) {
-      return 'Please enter your phone number';
-    } else if (value.startsWith("0")) {
-      return "Phone number cannot start with 0";
-    } else if (value.length <= 4 || value.length > 15) {
-      return 'Phone number must be between 7 to 15 digits';
+  if (value!.isEmpty) {
+    return 'Please enter your phone number';
+  } else if (value.startsWith("0")) {
+    if (value.length != 11) {
+      return 'Phone number must be 11 digits.';
     }
-    return null;
+  } else if (value.startsWith("92")) {
+    if (value.length != 12) {
+    
+     if(value.contains('920')){
+      return 'Third digit cant start with 0';
+    }
+     return 'Phone number must be 12 digits.';
+    }
+  } else {
+    return 'Phone number should start with 0 or 92';
   }
+  return null;
+}
 
   static String? validatePass(value) {
     if (value.length <= 0) {
@@ -47,4 +57,22 @@ class Validator {
     }
     return null;
   }
+  static String? validateNotEmpty(String? value){
+    if(value == null || value.isEmpty){
+      return 'This feild must not be empty';
+    }
+    return null;
+  }
+
+  static String? validateCNIC(value) {
+    if (value.length <= 0) {
+        return 'Please enter your CNIC number';
+    }
+    else if (value.length < 15) {
+       return 'CNIC number must be 13 digits';
+}
+return null;
+
+  }
+ 
 }

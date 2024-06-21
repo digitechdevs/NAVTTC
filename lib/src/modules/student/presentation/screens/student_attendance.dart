@@ -81,7 +81,7 @@ class StudentAttendanceDetails extends HookConsumerWidget {
                         // controller: email,
                         enabled: false,
                         textCapitalization: TextCapitalization.none,
-                        validator: Validator.validateName,
+                        validator: Validator.validateValue,
                         suffixIcon: const Icon(CupertinoIcons.camera),
                       ),
                       8.ph,
