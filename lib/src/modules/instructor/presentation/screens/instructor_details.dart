@@ -120,8 +120,6 @@ class InstructorDetails extends HookConsumerWidget {
                         FilteringTextInputFormatter.digitsOnly,
                         DynamicLengthFormatter(maxLengthFor0: 11, maxLengthFor9: 12),
                         PhoneNumberFormatter(),
-
-                        
                       ],
                       textCapitalization: TextCapitalization.none,
                       validator: Validator.validateMobile,
@@ -137,6 +135,7 @@ class InstructorDetails extends HookConsumerWidget {
                             controller: source.resumePath,
                             enabled: false,
                             textCapitalization: TextCapitalization.none,
+                            
                           ),
                         ),
                         6.pw,

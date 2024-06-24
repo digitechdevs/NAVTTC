@@ -17,6 +17,7 @@ import 'package:navttc/src/modules/instructor/presentation/providers/instructor_
 import 'package:navttc/src/services/app_services/field_services.dart';
 
 import '../../../../components/prompts.dart';
+import '../../../../components/selectable_tile.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../student/presentation/screens/student_home.dart';
 
@@ -25,13 +26,7 @@ class Institutetrade extends HookConsumerWidget {
 
   @override
   Widget build(context, ref) {
-    var email = useTextEditingController();
-    var name= useTextEditingController();
-    var phone= useTextEditingController();
-    var qualify= useTextEditingController();
-    var experience= useTextEditingController();
-    var remarks = useTextEditingController();
-    var cnic = useTextEditingController();    
+    
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 
@@ -54,122 +49,73 @@ class Institutetrade extends HookConsumerWidget {
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
-                    12.ph,
-                    CustomTextField(
-                      label: "Select Trade",
-                      fillColor: AppColors.primaryWhite,
-                      // controller: email,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateValue,
+                    
+                    8.ph,
+                    SelectableTile(
+                      title: 'Graphic Designing (UI/UX Designer)',
+                      showIcon: true,
+                      selected: true,
                       
+                    
+                    
                     ),
                     8.ph,
-                    CustomTextField(
-                      label: "Name",
-                      fillColor: AppColors.primaryWhite,
-                       controller: name,
-                      textCapitalization: TextCapitalization.words,
-                      validator: Validator.validateValue,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "CNIC",
-                      keyboardType: TextInputType.phone,
-                      maxLength: 15, 
-                      fillColor: AppColors.primaryWhite,
-                      controller: cnic,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateCNIC,
-                      inputformater: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        CNICInputFormatter(),
-                      ],
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Email",
-                      fillColor: AppColors.primaryWhite,
-                       controller: email ,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateEmail,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Qualification",
-                      fillColor: AppColors.primaryWhite,
-                      controller: qualify,
-                      textCapitalization: TextCapitalization.sentences,
-                      validator: Validator.validateNotEmpty,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Experience",
-                      fillColor: AppColors.primaryWhite,
-                       controller: experience,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateNotEmpty,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Phone",
-                      keyboardType: TextInputType.phone,
-                      maxLength: 12,
-                      fillColor: AppColors.primaryWhite,
-                      controller: phone,
-                      inputformater: [
-                        NoSpaceFormatter(),
-                        FilteringTextInputFormatter.digitsOnly,
-                        DynamicLengthFormatter(maxLengthFor0: 11, maxLengthFor9: 12),
-                        PhoneNumberFormatter(),
+                    SelectableTile(
+                      title: 'Advance Web application Development',
+                      showIcon: true,
+                      isGray: true,
+                      
+                    
+                    
+                    ),8.ph,
+                    SelectableTile(
+                      title: 'Certificate in IT (Web Development)',
+                      showIcon: true,
+                      isGray: true,
+                      
+                      
+                    
+                    ),8.ph,
+                    SelectableTile(
+                      title: 'Data Mining / Business Intelligence',
+                      showIcon: true,
+                      isGray: true,
+                      
+                      
+                    
+                    ),8.ph,
+                    SelectableTile(
+                      title: 'Digital Marketing & Search Engine Optimization (SEO)',
+                      showIcon: true,
+                      isGray: true,
+                      
+                      
+                    
+                    ),8.ph,
+                    SelectableTile(
+                      title: 'eCommerce',
+                      showIcon: true,
+                      isGray: true,
+                      
+                      
+                    
+                    ),8.ph,
+                    SelectableTile(
+                      title: 'Graphic Design and Video Editing',
+                      showIcon: true,
+                     isGray: true,
 
-                        
-                      ],
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateMobile,
-                    ),
-                    8.ph,
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CustomTextField(
-                            label: "Resume Upload",
-                            fillColor: AppColors.primaryWhite,
-                            borderColor: AppColors.transparent,
-                            controller: source.resumePath,
-                            enabled: false,
-                            textCapitalization: TextCapitalization.none,
-                          ),
-                        ),
-                        6.pw,
-                        ClipBox(
-                          onTap: () {
-                            source.pickResume();
-                          },
-                        ),
-                      ],
-                    ),
-                    8.ph,
-                    ImageBox(
-                      onTap: () {
-                        source.captureImageOne();
-                      },
-                      pickedFile: source.loadedImageOne,
-                    ),
-                    8.ph,
-                    ImageBox(
-                      onTap: () {
-                        source.captureImageTwo();
-                      },
-                      pickedFile: source.loadedImageTwo,
-                      icon: CupertinoIcons.person_alt,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Remarks",
-                      fillColor: AppColors.primaryWhite,
-                       controller: remarks,
-                      textCapitalization: TextCapitalization.sentences,
-                      // validator: Validator.validateRemarks,
+                      
+                      
+                    
+                    ),8.ph,
+                    SelectableTile(
+                      title: 'Power BI',
+                      showIcon: true,
+                      isGray: true,
+                      
+                    
+                    
                     ),
                     8.ph,
                     PrimaryButton(
@@ -184,6 +130,7 @@ class Institutetrade extends HookConsumerWidget {
                     kBottomNavigationBarHeight.ph,
                   ],
                 ),
+
               ),
             ),
           ],
