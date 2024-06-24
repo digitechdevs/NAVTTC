@@ -140,21 +140,45 @@ class DynamicLengthFormatter extends TextInputFormatter {
     return newValue;
   }
 }
+// class PhoneNumberFormatter extends TextInputFormatter {
+//   @override
+//   TextEditingValue formatEditUpdate(
+//       TextEditingValue oldValue, TextEditingValue newValue) {
+//     String newText = newValue.text;
+
+//     // Check if the text starts with "92"
+//     if (newText.startsWith('92')) {
+      
+//       // After "92", only allow "3" as the next character
+//       if (newText.length == 3 && newText[2] != '3') {
+//         return oldValue;
+//       }
+//     }
+
+//     return newValue;
+//   }
+// }
+
+
+
 class PhoneNumberFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     String newText = newValue.text;
+    
 
-    // Check if the text starts with "92"
-    if (newText.startsWith('92')) {
-      
-      // After "92", only allow "3" as the next character
-      if (newText.length == 3 && newText[2] != '3') {
-        return oldValue;
-      }
+    // Ensure it starts with "923"
+    if (!newText.startsWith('923')) {
+      newText = '923' + newText.replaceFirst(RegExp(r'^92*'), '');
     }
+    
 
-    return newValue;
+    // Allow only numeric characters after "923"
+    newText = newText.replaceAll(RegExp(r'[^0-9]'), '');
+
+    return TextEditingValue(
+      text: newText,
+      selection: TextSelection.collapsed(offset: newText.length),
+    );
   }
 }

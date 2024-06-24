@@ -42,5 +42,7 @@ class AppColors {
   static const Color backgroundGeneralPhysicianColor = Color.fromRGBO(217, 111, 91, 1);
  static const Color backgroundHomeCareColor = Color.fromRGBO(223, 176, 130, 1);
  static const Color backgroundInsuranceColor = Colors.orange;
+   static const Color tradegray = Color(0xffE9E9E9);
+
  
 }

@@ -91,4 +91,5 @@ class AppColors {
   static const Color waterBlue = Color.fromRGBO(13, 66, 110, 1);
   static const Color hotelRed = Color.fromRGBO(230, 48, 126, 1);
   static const Color groceryGreen = Color.fromRGBO(69, 161, 123, 1);
+
 }

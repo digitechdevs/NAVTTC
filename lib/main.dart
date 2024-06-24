@@ -1,8 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/modules/authentication/presentation/screens/login_screen.dart';
+import 'package:navttc/src/modules/institute/provider/screens/add_edit2.dart';
+import 'package:navttc/src/modules/institute/provider/screens/allied_other_facilities.dart';
+import 'package:navttc/src/modules/institute/provider/screens/allied_other_facilities2.dart';
+import 'package:navttc/src/modules/institute/provider/screens/allied_other_facilities3.dart';
 import 'package:navttc/src/modules/institute/provider/screens/institue_detail.dart';
 import 'package:navttc/src/modules/institute/provider/screens/institue_home.dart';
+import 'package:navttc/src/modules/institute/provider/screens/institue_profile.dart';
+import 'package:navttc/src/modules/institute/provider/screens/institute_profile2.dart';
+import 'package:navttc/src/modules/institute/provider/screens/trade.dart';
+import 'package:navttc/src/modules/institute/provider/screens/trade1.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_attendance_history.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_home.dart';
 import 'package:navttc/src/modules/student/presentation/screens/student_attendance.dart';
@@ -34,7 +42,7 @@ class Navttc extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
           useMaterial3: true,
         ),
-        home: const InstituteHome(),
+        home: const InstituteAddEdit2(),
       ),
     );
   }
