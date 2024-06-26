@@ -20,8 +20,8 @@ import '../../../../components/prompts.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../student/presentation/screens/student_home.dart';
 
-class InstituteAddEdit extends HookConsumerWidget {
-  const InstituteAddEdit({super.key});
+class InstituteAddEditInstructor extends HookConsumerWidget {
+  const InstituteAddEditInstructor({super.key});
 
   @override
   Widget build(context, ref) {
@@ -46,7 +46,7 @@ class InstituteAddEdit extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Form(
-                key: formKey,
+               // key: formKey,
                 child: Column(
                   children: [
                     CustomText(

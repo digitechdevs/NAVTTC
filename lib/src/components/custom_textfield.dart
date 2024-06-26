@@ -74,7 +74,7 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintStyle: TextStyle(
-          color: AppColors.primaryWhite,
+          color: AppColors.primaryBlack,
           fontSize: 16,
         ),
       ),

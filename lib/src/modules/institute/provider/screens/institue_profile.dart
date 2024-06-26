@@ -99,19 +99,21 @@ class InstituteProfile extends HookConsumerWidget {
                     8.ph,
                     Row(
                       children: [
-                        const Expanded(
+                       Expanded(
                           child: SelectableTile(
                             title: 'Is Registered',
                             showIcon: false,
                             selected: false,
-                            
-                          ),
-                        ),CustomToggleSwitch(
+                            suffix: CustomToggleSwitch(
                   value: _switchValue2.value,
                   onChanged: (bool value) {
                     _switchValue2.value = value;
                   },
                 ),
+
+                            
+                          ),
+                        ),
                       ],
                     ),
                     8.ph,

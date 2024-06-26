@@ -10,35 +10,32 @@ import 'package:navttc/src/components/custom_text.dart';
 import 'package:navttc/src/components/custom_textfield.dart';
 import 'package:navttc/src/components/image_box.dart';
 import 'package:navttc/src/components/primary_button.dart';
+import 'package:navttc/src/components/selectable_tile.dart';
 import 'package:navttc/src/core/theme/app_textstyles.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
 import 'package:navttc/src/modules/instructor/presentation/providers/instructor_provider.dart';
 import 'package:navttc/src/services/app_services/field_services.dart';
 
+import '../../../../components/custom_toggle_switch.dart';
 import '../../../../components/prompts.dart';
-import '../../../../core/utils/app_enums.dart';
-import '../../../student/presentation/screens/student_home.dart';
+import 'allied_other_facilities2.dart';
 
 class InstituteFacilities extends HookConsumerWidget {
   const InstituteFacilities({super.key});
 
   @override
-  Widget build(context, ref) {
-    var email = useTextEditingController();
-    var name= useTextEditingController();
-    var phone= useTextEditingController();
-    var qualify= useTextEditingController();
-    var experience= useTextEditingController();
-    var remarks = useTextEditingController();
-    var cnic = useTextEditingController();    
+  Widget build(BuildContext context, WidgetRef ref) {
+    final _switchValue = useState(false);
+    final _switchValue2 = useState(false);
+
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-
     var source = ref.watch(instructorProvider);
+
     return Scaffold(
       body: SingleChildScrollView(
-        keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag, 
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           children: [
             const ScreenHeaderWithButton(),
@@ -50,89 +47,135 @@ class InstituteFacilities extends HookConsumerWidget {
                 child: Column(
                   children: [
                     CustomText(
-                      "Add/ Edit Instructor",
+                      "Partner Institute's Profile 1/2",
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
-                    12.ph,
-                    CustomTextField(
-                      label: "Select Trade",
-                      fillColor: AppColors.primaryWhite,
-                      // controller: email,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateValue,
-                      
-                    ),
                     8.ph,
-                    CustomTextField(
-                      label: "Name",
-                      fillColor: AppColors.primaryWhite,
-                       controller: name,
-                      textCapitalization: TextCapitalization.words,
-                      validator: Validator.validateValue,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "CNIC",
-                      keyboardType: TextInputType.phone,
-                      maxLength: 15, 
-                      fillColor: AppColors.primaryWhite,
-                      controller: cnic,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateCNIC,
-                      inputformater: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        CNICInputFormatter(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CustomText(
+                          "Admission Facilitation",
+                          alignment: Alignment.centerLeft,
+                          // textStyle: AppTextStyles.middleBlackBoldTextStyle,
+                        ),
+                        CustomToggleSwitch(
+                          value: _switchValue.value,
+                          onChanged: (bool value) {
+                            _switchValue.value = value;
+                          },
+                        ),
                       ],
                     ),
+                     8.ph,
+                      CustomTextField(
+                        label: "Remarks",
+                        fillColor: AppColors.primaryWhite,
+                        // controller: email,
+                        textCapitalization: TextCapitalization.sentences,
+                        validator: Validator.validateValue,
+                      ),
                     8.ph,
-                    CustomTextField(
-                      label: "Email",
-                      fillColor: AppColors.primaryWhite,
-                       controller: email ,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateEmail,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Qualification",
-                      fillColor: AppColors.primaryWhite,
-                      controller: qualify,
-                      textCapitalization: TextCapitalization.sentences,
-                      validator: Validator.validateNotEmpty,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Experience",
-                      fillColor: AppColors.primaryWhite,
-                       controller: experience,
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateNotEmpty,
-                    ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Phone",
-                      keyboardType: TextInputType.phone,
-                      maxLength: 12,
-                      fillColor: AppColors.primaryWhite,
-                      controller: phone,
-                      inputformater: [
-                        NoSpaceFormatter(),
-                        FilteringTextInputFormatter.digitsOnly,
-                        DynamicLengthFormatter(maxLengthFor0: 11, maxLengthFor9: 12),
-                        PhoneNumberFormatter(),
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: CustomText(
+                            'Complaint Management System',
+                            alignment: Alignment.centerLeft,
+                     // textStyle: AppTextStyles.middleBlackBoldTextStyle,
 
-                        
-                      ],
-                      textCapitalization: TextCapitalization.none,
-                      validator: Validator.validateMobile,
+                          ),
+                        ),CustomToggleSwitch(
+                  value: _switchValue2.value,
+                  onChanged: (bool value) {
+                    _switchValue2.value = value;
+                  },
+                ),
+                      ],   
                     ),
                     8.ph,
+                      CustomTextField(
+                        label: "Remarks",
+                        fillColor: AppColors.primaryWhite,
+                        // controller: email,
+                        textCapitalization: TextCapitalization.sentences,
+                        validator: Validator.validateValue,
+                      ),
+                      8.ph,
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: CustomText(
+                            'Industrial Linkage',
+                            alignment: Alignment.centerLeft,
+                     // textStyle: AppTextStyles.middleBlackBoldTextStyle,
+                          ),
+                        ),CustomToggleSwitch(
+                  value: _switchValue2.value,
+                  onChanged: (bool value) {
+                    _switchValue2.value = value;
+                  },
+                ),
+                      ],   
+                    ),
+                    8.ph,
+                      CustomTextField(
+                        label: "Remarks",
+                        fillColor: AppColors.primaryWhite,
+                        // controller: email,
+                        textCapitalization: TextCapitalization.sentences,
+                        validator: Validator.validateValue,
+                      ),
+                    8.ph,
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: CustomText(
+                            'On Job Training Plans/Status',
+                            alignment: Alignment.centerLeft,
+                     // textStyle: AppTextStyles.middleBlackBoldTextStyle,
+                          ),
+                        ),CustomToggleSwitch(
+                  value: _switchValue2.value,
+                  onChanged: (bool value) {
+                    _switchValue2.value = value;
+                  },
+                ),
+                      ],   
+                    ),
+                    8.ph,
+                      CustomTextField(
+                        label: "Remarks",
+                        fillColor: AppColors.primaryWhite,
+                        // controller: email,
+                        textCapitalization: TextCapitalization.sentences,
+                        validator: Validator.validateValue,
+                      ),
+                      8.ph,
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: CustomText(
+                            'Availability of First Aid Box ',
+                            alignment: Alignment.centerLeft,
+                     // textStyle: AppTextStyles.middleBlackBoldTextStyle,
+                          ),
+                        ),CustomToggleSwitch(
+                  value: _switchValue2.value,
+                  onChanged: (bool value) {
+                    _switchValue2.value = value;
+                  },
+                ),
+                      ],   
+                    ),
+                    
+                       8.ph,
                     Row(
                       children: [
                         Expanded(
                           child: CustomTextField(
-                            label: "Resume Upload",
+                            label: "Institutional Accredited?",
                             fillColor: AppColors.primaryWhite,
                             borderColor: AppColors.transparent,
                             controller: source.resumePath,
@@ -140,7 +183,52 @@ class InstituteFacilities extends HookConsumerWidget {
                             textCapitalization: TextCapitalization.none,
                           ),
                         ),
-                        6.pw,
+                        6.ph,
+                        ClipBox(
+                          onTap: () {
+                            source.pickResume();
+                          },
+                        ),
+                      ],
+                    ),
+                    8.ph,
+                    ImageBox(
+                      onTap: () {
+                        source.captureImageOne();
+                      },
+                      pickedFile: source.loadedImageOne,
+                    ),
+                     8.ph,
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: CustomText(
+                            'Availability of First Aid Box ',
+                            alignment: Alignment.centerLeft,
+                     // textStyle: AppTextStyles.middleBlackBoldTextStyle,
+                          ),
+                        ),CustomToggleSwitch(
+                  value: _switchValue2.value,
+                  onChanged: (bool value) {
+                    _switchValue2.value = value;
+                  },
+                ),
+                      ],   
+                    ),
+                      8.ph,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: CustomTextField(
+                            label: "Institutional Accredited?",
+                            fillColor: AppColors.primaryWhite,
+                            borderColor: AppColors.transparent,
+                            controller: source.resumePath,
+                            enabled: false,
+                            textCapitalization: TextCapitalization.none,
+                          ),
+                        ),
+                        6.ph,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
@@ -156,32 +244,20 @@ class InstituteFacilities extends HookConsumerWidget {
                       pickedFile: source.loadedImageOne,
                     ),
                     8.ph,
-                    ImageBox(
+                   PrimaryButton(
                       onTap: () {
-                        source.captureImageTwo();
+                        if (!formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const InstituteFacilities2()),
+                          );
+                        } else {
+                          Prompts.popMessenger("Please input correct information");
+                        }
                       },
-                      pickedFile: source.loadedImageTwo,
-                      icon: CupertinoIcons.person_alt,
+                      text: 'Next',
                     ),
-                    8.ph,
-                    CustomTextField(
-                      label: "Remarks",
-                      fillColor: AppColors.primaryWhite,
-                       controller: remarks,
-                      textCapitalization: TextCapitalization.sentences,
-                      // validator: Validator.validateRemarks,
-                    ),
-                    8.ph,
-                    PrimaryButton(
-                      onTap: () {
-                                    if (formKey.currentState!.validate()) {   
-                                    } else {
-                                      Prompts.popMessenger("Please input correct information");
-                                    }
-                                  },
-                      text: 'SAVE',
-                    ),
-                    kBottomNavigationBarHeight.ph,
+                    SizedBox(height: kBottomNavigationBarHeight), // Replace kBottomNavigationBarHeight.ph with equivalent spacing
                   ],
                 ),
               ),

@@ -56,9 +56,9 @@ class Institutetrade2 extends HookConsumerWidget {
                       CustomTextField(
                         label: "Jawad Multani",
                         fillColor: AppColors.primaryWhite,
-                        prefixIcon: Icon(Icons.person),
+                        prefixIcon: Icon(Icons.person, ),
                         // controller: email,
-                        suffixIcon: Icon(Icons.edit_document),
+                        suffixIcon: Icon(Icons.edit_document), 
                         textCapitalization: TextCapitalization.sentences,
                         enabled: false,
                       ),

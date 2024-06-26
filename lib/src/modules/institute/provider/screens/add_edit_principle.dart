@@ -15,17 +15,16 @@ import 'package:navttc/src/components/selectable_tile.dart';
 import 'package:navttc/src/core/theme/app_textstyles.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
-import 'package:navttc/src/modules/institute/provider/screens/add_edit_principle.dart';
+import 'package:navttc/src/modules/institute/provider/institie_provider.dart';
 import 'package:navttc/src/modules/instructor/presentation/providers/instructor_provider.dart';
 import 'package:navttc/src/services/app_services/field_services.dart';
 
 import '../../../../components/prompts.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../student/presentation/screens/student_home.dart';
-import 'add_edit.dart';
 
-class InstituteAddEdit2 extends HookConsumerWidget {
-  const InstituteAddEdit2({super.key});
+class InstituteAddEditPrinciple extends HookConsumerWidget {
+  const InstituteAddEditPrinciple({super.key});
 
   @override
   Widget build(context, ref) {
@@ -33,10 +32,10 @@ class InstituteAddEdit2 extends HookConsumerWidget {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 
-    var source = ref.watch(instructorProvider);
+    var source = ref.watch(instituteProvider);
     return Scaffold(
       body: SingleChildScrollView(
-      //  keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag, 
+        keyboardDismissBehavior:ScrollViewKeyboardDismissBehavior.onDrag, 
         child: Column(
           children: [
             const ScreenHeaderWithButton(),
@@ -44,51 +43,46 @@ class InstituteAddEdit2 extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Form(
-                key: formKey,
+                // key: formKey,
                 child: Column(
                   children: [
                     CustomText(
-                      "Add/ Edit Details",
+                      "Add/Edit Principal",
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
                     12.ph,
-                    CustomButton(
-                            title: 'Principal',
-                            showIcon: true,
-                            onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => InstituteAddEditPrinciple()),
-                        );
-                      },
-   
-                    ),
-                     12.ph,
-                    CustomButton(
-                            title: 'Focal Person',
-                            showIcon: true,
-                             onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => InstituteAddEditPrinciple()),
-                        );
-                      },
-   
-                            
-   
-                    ), 12.ph,
-                    CustomButton(
-                            title: 'Instructor',
-                            showIcon: true,
-                             onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => InstituteAddEditInstructor()),
-                        );
-                      },
-   
-   
+                    CustomTextField(
+                      label: "Institute Id",
+                      fillColor: AppColors.primaryWhite,
+                      // controller: email,
+                      textCapitalization: TextCapitalization.words,
+                      keyboardType: TextInputType.phone,
+
+                      
+                    ),12.ph,
+                    CustomTextField(
+                      label: "Institute Name",
+                      fillColor: AppColors.primaryWhite,
+                      // controller: email,
+                      textCapitalization: TextCapitalization.words,
+                      
+                    ),12.ph,
+                    CustomTextField(
+                      label: "Name",
+                      fillColor: AppColors.primaryWhite,
+                      // controller: email,
+                      textCapitalization: TextCapitalization.words,
+                      
+                    ),12.ph,
+                    CustomTextField(
+                      label: "Phone Number",
+                      fillColor: AppColors.primaryWhite,
+                      // controller: email,
+                      textCapitalization: TextCapitalization.none,
+                       keyboardType: TextInputType.phone,
+
+                      
                     ),
                    
                     8.ph,

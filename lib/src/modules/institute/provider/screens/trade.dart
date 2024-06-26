@@ -13,6 +13,7 @@ import 'package:navttc/src/components/primary_button.dart';
 import 'package:navttc/src/core/theme/app_textstyles.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
+import 'package:navttc/src/modules/institute/provider/screens/trade1.dart';
 import 'package:navttc/src/modules/instructor/presentation/providers/instructor_provider.dart';
 import 'package:navttc/src/services/app_services/field_services.dart';
 
@@ -55,6 +56,12 @@ class Institutetrade extends HookConsumerWidget {
                       title: 'Graphic Designing (UI/UX Designer)',
                       showIcon: true,
                       selected: true,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Institutetrade1()),
+                        );
+                      },
                       
                     
                     
@@ -84,7 +91,7 @@ class Institutetrade extends HookConsumerWidget {
                       
                     
                     ),8.ph,
-                    SelectableTile(
+                    const SelectableTile(
                       title: 'Digital Marketing & Search Engine Optimization (SEO)',
                       showIcon: true,
                       isGray: true,

@@ -9,6 +9,7 @@ class SelectableTile extends StatelessWidget {
   final String? title;
   final bool? selected;
   final bool? isGray;
+  final Widget? suffix;
   final VoidCallback? onTap;
   final bool showIcon;
 
@@ -18,7 +19,7 @@ class SelectableTile extends StatelessWidget {
     this.title,
     this.selected = true,
     this.isGray = false,
-    this.showIcon = true,
+    this.showIcon = true, this.suffix,
   });
 
   @override
@@ -60,6 +61,7 @@ class SelectableTile extends StatelessWidget {
                 AppAssets.building,
                 color: getTextColor(),
               ),
+              
             if (showIcon) SizedBox(width: 10.sp),
             Expanded(
               child: CustomText(
@@ -77,9 +79,11 @@ class SelectableTile extends StatelessWidget {
                 CupertinoIcons.check_mark,
                 color: getTextColor(),
               ),
+            suffix  ?? const SizedBox.shrink(),
           ],
         ),
       ),
     );
   }
 }
+

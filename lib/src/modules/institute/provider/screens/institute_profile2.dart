@@ -110,12 +110,7 @@ class InstituteProfile2 extends HookConsumerWidget {
                           ),
                           
                           
-                        ),CustomToggleSwitch(
-                  value: _switchValue2.value,
-                  onChanged: (bool value) {
-                    _switchValue2.value = value;
-                  },
-                ),
+                        ),
                       ],
                     ),
                      8.ph,

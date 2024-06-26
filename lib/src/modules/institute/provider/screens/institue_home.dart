@@ -15,6 +15,8 @@ import 'package:navttc/src/modules/instructor/presentation/screens/instructor_at
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_attendance_history.dart';
 import 'package:navttc/src/modules/instructor/presentation/screens/instructor_details.dart';
 
+import 'add_edit2.dart';
+
 class InstituteHome extends StatelessWidget {
   const InstituteHome({super.key});
 
@@ -55,7 +57,7 @@ class InstituteHome extends StatelessWidget {
                                 AppRouter.push(Institutetrade());
                               }
                               if (i == 4) {
-                                AppRouter.push(InstituteAddEdit());
+                                AppRouter.push(InstituteAddEdit2());
                               }},
                             title: instructor.options[i].title,
                             selected: instructor.options[i].selected,
