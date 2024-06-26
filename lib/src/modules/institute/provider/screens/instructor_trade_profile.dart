@@ -21,10 +21,9 @@ import '../../../../components/prompts.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../student/presentation/screens/student_home.dart';
 import '../institie_provider.dart';
-import 'institue_home.dart';
 
-class InstituteDetail extends HookConsumerWidget {
-  const InstituteDetail({super.key});
+class InstituteTradeProfile extends HookConsumerWidget {
+  const InstituteTradeProfile({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,7 +36,7 @@ class InstituteDetail extends HookConsumerWidget {
         child: Column(
           children: [
             const ScreenHeaderWithButton(),
-            SizedBox(height: 18.0),
+            18.ph,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Form(
@@ -45,139 +44,67 @@ class InstituteDetail extends HookConsumerWidget {
                 child: Column(
                   children: [
                     CustomText(
-                      "Add/ Edit Instructor",
+                      "Instructor Profile",
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
                     12.ph,
                     CustomTextField(
-                      prefixIcon: Transform.scale(
-                        scale: 0.6, 
-                        child: SvgPicture.asset(
-                          AppAssets.building,
-                          
-                        ),
-                      ),
-                      label: "Institute of Business Management",
+
+                      label: "Name",
                       fillColor: AppColors.primaryWhite,
                       textCapitalization: TextCapitalization.none,
                     ),
                     8.ph,
                     CustomTextField(
-                      label: "Korangi Creek Road, Karachi",
+                      label: "CNIC",
                       fillColor: AppColors.primaryWhite,
                       textCapitalization: TextCapitalization.words,
-                      enabled: false,
+
                     ),
                     8.ph,
                     CustomTextField(
-                      label: "Sindh",
-                      maxLength: 15,
+                      label: "BE",
                       fillColor: AppColors.primaryWhite,
                       textCapitalization: TextCapitalization.none,
-                      enabled: false,
+
                     ),
                     8.ph,
                     CustomTextField(
-                      prefixIcon: Icon(Icons.access_time_outlined),
                       label: "Karachi, Korangi",
                       fillColor: AppColors.primaryWhite,
                       textCapitalization: TextCapitalization.none,
-                      enabled: false,
-
                     ),
                     8.ph,
-                    CustomTextField(
-                      prefixIcon: Icon(Icons.email_outlined),
-                      label: "Email",
-                      fillColor: AppColors.primaryWhite,
-                      textCapitalization: TextCapitalization.sentences,
-                      enabled: false,
-
-                    ),
-                     10.ph,
-                    CustomText(
-                      "Principal's Name",
-                      alignment: Alignment.centerLeft,
-                      textStyle: AppTextStyles.middleBlackTextStyle,
-
-                    ),
-                     8.ph,
-                    CustomTextField(
-                      label: "Dr. Imran Batada",
-                      fillColor: AppColors.primaryWhite,
-                      textCapitalization: TextCapitalization.none,
-                      enabled: false,
-
-                    ),
-                    10.ph,
-                    CustomText(
-                      "Focal Person's Contact Number",
-                      alignment: Alignment.centerLeft,
-                      textStyle: AppTextStyles.middleBlackTextStyle,
-
-                    ),
-                    2.ph,
                     CustomTextField(
                       label: "Phone",
+                      fillColor: AppColors.primaryWhite,
+                      textCapitalization: TextCapitalization.sentences,
                       keyboardType: TextInputType.phone,
-                      maxLength: 12,
-                      fillColor: AppColors.primaryWhite,
-                      textCapitalization: TextCapitalization.none,
-                      enabled: false,
+
 
                     ),
-                    30.ph,
-                    CustomText(
-                      "Focal Person's Name",
-                      alignment: Alignment.centerLeft,
-                      textStyle: AppTextStyles.middleBlackTextStyle,
 
-                    ),
-                     10.ph,
-                    CustomTextField(
-                      prefixIcon: Icon(Icons.person_outline),
-                      label: "Dr. Imran Batada",
-                      fillColor: AppColors.primaryWhite,
-                      textCapitalization: TextCapitalization.none,
-                      enabled: false,
-
-                    ),
-                    SizedBox(height: 10.0),
-                    CustomText(
-                      "Focal Person's Contact Number",
-                      alignment: Alignment.centerLeft,
-                      textStyle: AppTextStyles.middleBlackTextStyle,
-                    ),
-                  8.ph,
-                    CustomTextField(
-                      prefixIcon: Icon(Icons.phone_outlined),
-                      label: "phone",
-                      fillColor: AppColors.primaryWhite,
-                      textCapitalization: TextCapitalization.none,
-                      enabled: false,
-
-                    ),
                     8.ph,
                     CustomTextField(
-                      prefixIcon: Icon(Icons.calendar_month),
-                      label: "21-05-2024",
+                      label: "Remarks",
                       fillColor: AppColors.primaryWhite,
                       textCapitalization: TextCapitalization.none,
-                      enabled: false,
-
                     ),
+
                     8.ph,
                     PrimaryButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InstituteHome()),
+                          // Form is valid, handle saving or other actions
+                        } else {
+                          // Form is not valid, show an error message
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Please input correct information'),
+                              duration: Duration(seconds: 2),
+                            ),
                           );
-                        }
-                        else {
-                          Prompts.popMessenger("Please input correct information");
                         }
                       },
                       text: 'SAVE',

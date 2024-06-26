@@ -51,7 +51,7 @@ class InstituteProfile extends HookConsumerWidget {
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
-                    SizedBox(height: 8), // Replace 8.ph with equivalent spacing
+                     8.ph, // Replace 8.ph with equivalent spacing
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -81,7 +81,7 @@ class InstituteProfile extends HookConsumerWidget {
                             textCapitalization: TextCapitalization.none,
                           ),
                         ),
-                        6.ph,
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
@@ -104,12 +104,16 @@ class InstituteProfile extends HookConsumerWidget {
                             title: 'Is Registered',
                             showIcon: false,
                             selected: false,
-                            suffix: CustomToggleSwitch(
-                  value: _switchValue2.value,
-                  onChanged: (bool value) {
-                    _switchValue2.value = value;
-                  },
-                ),
+                            suffix: SizedBox(
+                              height: 30,
+                              child: CustomToggleSwitch(
+                                value: _switchValue2.value,
+                                onChanged: (bool value) {
+                                  _switchValue2.value = value;
+                                },
+                              ),
+                            ),
+
 
                             
                           ),
@@ -119,22 +123,24 @@ class InstituteProfile extends HookConsumerWidget {
                     8.ph,
                     Row(
                       children: [
-                        Expanded(
-                          child: SelectableTile(
-                            title: 'Name of Registration Authority',
-                            showIcon: false,
-                            selected: false,
-                          
-                          ),
-                        ),
-                        6.ph,
+                    Expanded(
+                    child:
+                    SelectableTile(
+                      title: 'Name of Registration Authority',
+                      showIcon: false,
+                      selected: false,
+
+                    ),
+                    ),
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
                           },
                         ),
-                      ],
+                    ],
                     ),
+
                      8.ph,
                     ImageBox(
                       onTap: () {
@@ -150,7 +156,8 @@ class InstituteProfile extends HookConsumerWidget {
                             context,
                             MaterialPageRoute(builder: (context) => const InstituteProfile2()),
                           );
-                        } else {
+                        }
+                        else {
                           Prompts.popMessenger("Please input correct information");
                         }
                       },

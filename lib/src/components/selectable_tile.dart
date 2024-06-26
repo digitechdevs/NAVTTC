@@ -48,7 +48,7 @@ class SelectableTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(20.sp),
+        padding: EdgeInsets.all(16.sp),
         decoration: BoxDecoration(
           color: getBackgroundColor(),
           border: Border.all(color: getBorderColor()),

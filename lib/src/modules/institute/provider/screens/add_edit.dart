@@ -19,6 +19,7 @@ import 'package:navttc/src/services/app_services/field_services.dart';
 import '../../../../components/prompts.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../student/presentation/screens/student_home.dart';
+import 'institue_home.dart';
 
 class InstituteAddEditInstructor extends HookConsumerWidget {
   const InstituteAddEditInstructor({super.key});
@@ -31,7 +32,7 @@ class InstituteAddEditInstructor extends HookConsumerWidget {
     var qualify= useTextEditingController();
     var experience= useTextEditingController();
     var remarks = useTextEditingController();
-    var cnic = useTextEditingController();    
+    var cnic = useTextEditingController();
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 
@@ -174,11 +175,16 @@ class InstituteAddEditInstructor extends HookConsumerWidget {
                     8.ph,
                     PrimaryButton(
                       onTap: () {
-                                    if (formKey.currentState!.validate()) {   
-                                    } else {
-                                      Prompts.popMessenger("Please input correct information");
-                                    }
-                                  },
+                        if (formKey.currentState!.validate()) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const InstituteHome()),
+                          );
+                        }
+                        else {
+                          Prompts.popMessenger("Please input correct information");
+                        }
+                      },
                       text: 'SAVE',
                     ),
                     kBottomNavigationBarHeight.ph,

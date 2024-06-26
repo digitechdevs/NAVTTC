@@ -26,8 +26,13 @@ class InstituteFacilities extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _switchValue = useState(false);
+    final _switchValue1 = useState(false);
     final _switchValue2 = useState(false);
+    final _switchValue3 = useState(false);
+    final _switchValue4 = useState(false);
+    final _switchValue5 = useState(false);
+    final _switchValue6 = useState(false);
+
 
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -47,7 +52,7 @@ class InstituteFacilities extends HookConsumerWidget {
                 child: Column(
                   children: [
                     CustomText(
-                      "Partner Institute's Profile 1/2",
+                      "Allied/Other Facilities 1/2",
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
@@ -61,9 +66,9 @@ class InstituteFacilities extends HookConsumerWidget {
                           // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                         ),
                         CustomToggleSwitch(
-                          value: _switchValue.value,
+                          value: _switchValue1.value,
                           onChanged: (bool value) {
-                            _switchValue.value = value;
+                            _switchValue1.value = value;
                           },
                         ),
                       ],
@@ -112,9 +117,9 @@ class InstituteFacilities extends HookConsumerWidget {
                      // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                           ),
                         ),CustomToggleSwitch(
-                  value: _switchValue2.value,
+                  value: _switchValue3.value,
                   onChanged: (bool value) {
-                    _switchValue2.value = value;
+                    _switchValue3.value = value;
                   },
                 ),
                       ],   
@@ -137,9 +142,9 @@ class InstituteFacilities extends HookConsumerWidget {
                      // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                           ),
                         ),CustomToggleSwitch(
-                  value: _switchValue2.value,
+                  value: _switchValue4.value,
                   onChanged: (bool value) {
-                    _switchValue2.value = value;
+                    _switchValue4.value = value;
                   },
                 ),
                       ],   
@@ -162,9 +167,9 @@ class InstituteFacilities extends HookConsumerWidget {
                      // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                           ),
                         ),CustomToggleSwitch(
-                  value: _switchValue2.value,
+                  value: _switchValue5.value,
                   onChanged: (bool value) {
-                    _switchValue2.value = value;
+                    _switchValue5.value = value;
                   },
                 ),
                       ],   
@@ -183,7 +188,7 @@ class InstituteFacilities extends HookConsumerWidget {
                             textCapitalization: TextCapitalization.none,
                           ),
                         ),
-                        6.ph,
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
@@ -208,9 +213,9 @@ class InstituteFacilities extends HookConsumerWidget {
                      // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                           ),
                         ),CustomToggleSwitch(
-                  value: _switchValue2.value,
+                  value: _switchValue6.value,
                   onChanged: (bool value) {
-                    _switchValue2.value = value;
+                    _switchValue6.value = value;
                   },
                 ),
                       ],   
@@ -228,7 +233,7 @@ class InstituteFacilities extends HookConsumerWidget {
                             textCapitalization: TextCapitalization.none,
                           ),
                         ),
-                        6.ph,
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();

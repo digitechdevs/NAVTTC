@@ -14,6 +14,7 @@ import 'package:navttc/src/components/selectable_tile.dart';
 import 'package:navttc/src/core/theme/app_textstyles.dart';
 import 'package:navttc/src/core/utils/app_exports.dart';
 import 'package:navttc/src/core/utils/validator.dart';
+import 'package:navttc/src/modules/institute/provider/screens/institue_home.dart';
 import 'package:navttc/src/modules/instructor/presentation/providers/instructor_provider.dart';
 import 'package:navttc/src/services/app_services/field_services.dart';
 
@@ -27,7 +28,6 @@ class InstituteProfile2 extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final _switchValue1 = useState(false);
     final _switchValue2 = useState(false);
-       
 
 
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -52,78 +52,34 @@ class InstituteProfile2 extends HookConsumerWidget {
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
-                     8.ph,
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: SelectableTile(
-                            title: 'Is Registered',
-                            showIcon: false,
-                            selected: false,
-                            
-                          ),
-                          
-                          
-                        ),CustomToggleSwitch(
-                  value: _switchValue2.value,
-                  onChanged: (bool value) {
-                    _switchValue2.value = value;
-                  },
-                ),
-                        
-                      ],
+                    8.ph,
+                    SelectableTile(
+                      title: 'Is Affiliated',
+                      showIcon: false,
+                      selected: false,
+                      suffix: SizedBox(
+                        height: 30,
+                        child: CustomToggleSwitch(
+                          value: _switchValue1.value,
+                          onChanged: (bool value) {
+                            _switchValue1.value = value;
+                          },
+                        ),
+                      ),
+
+
                     ),
                     8.ph,
                     Row(
                       children: [
                         Expanded(
                           child: SelectableTile(
-                            title: 'Is Affiliated',
+                            title: 'Name of Affiliated Authority',
                             selected: false,
                             showIcon: false,
                           ),
                         ),
-                        6.ph,
-                        ClipBox(
-                          onTap: () {
-                            source.pickResume();
-                          },
-                        ),
-                      ],
-                    ),
-                     8.ph,
-                    ImageBox(
-                      onTap: () {
-                        source.captureImageOne();
-                      },
-                      pickedFile: source.loadedImageOne,
-                    ),
-                     8.ph,
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: SelectableTile(
-                            title: 'Is Registered',
-                            showIcon: false,
-                            selected: false,
-                            
-                          ),
-                          
-                          
-                        ),
-                      ],
-                    ),
-                     8.ph,
-                    Row(
-                      children: [
-                        Expanded(
-                          child: SelectableTile(
-                            title: 'Is Affiliated',
-                            selected: false,
-                            showIcon: false,
-                          ),
-                        ),
-                        6.ph,
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
@@ -138,20 +94,71 @@ class InstituteProfile2 extends HookConsumerWidget {
                       },
                       pickedFile: source.loadedImageOne,
                     ),
-                    
-                    
+
+                    8.ph,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SelectableTile(
+                            title: 'Installation of NAVTTC Information/Sign Board',
+                            showIcon: false,
+                            selected: false,
+                            suffix: SizedBox(
+                              height: 30,
+                              child: CustomToggleSwitch(
+                                value: _switchValue2.value,
+                                onChanged: (bool value) {
+                                  _switchValue2.value = value;
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    8.ph,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SelectableTile(
+                            title: 'Is Affiliated',
+                            selected: false,
+                            showIcon: false,
+                          ),
+                        ),
+                        6.pw,
+                        ClipBox(
+                          onTap: () {
+                            source.pickResume();
+                          },
+                        ),
+                      ],
+                    ),
+                    8.ph,
+                    ImageBox(
+                      onTap: () {
+                        source.captureImageOne();
+                      },
+                      pickedFile: source.loadedImageOne,
+                    ),
+
                     8.ph,
                     PrimaryButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          // Handle the form submission
-                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const InstituteHome()),
+                          );
+                        }
+                        else {
                           Prompts.popMessenger("Please input correct information");
                         }
                       },
                       text: 'SAVE',
                     ),
-                    SizedBox(height: kBottomNavigationBarHeight), // Replace kBottomNavigationBarHeight.ph with equivalent spacing
+                    SizedBox(height: kBottomNavigationBarHeight),
+                    // Replace kBottomNavigationBarHeight.ph with equivalent spacing
                   ],
                 ),
               ),

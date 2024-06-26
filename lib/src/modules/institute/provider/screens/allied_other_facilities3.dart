@@ -19,14 +19,16 @@ import 'package:navttc/src/services/app_services/field_services.dart';
 
 import '../../../../components/custom_toggle_switch.dart';
 import '../../../../components/prompts.dart';
+import 'institue_home.dart';
 
 class InstituteFacilities3 extends HookConsumerWidget {
   const InstituteFacilities3({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _switchValue = useState(false);
+    final _switchValue1 = useState(false);
     final _switchValue2 = useState(false);
+
 
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -46,7 +48,7 @@ class InstituteFacilities3 extends HookConsumerWidget {
                 child: Column(
                   children: [
                     CustomText(
-                      "Allied/Other Facilities  3/3",
+                      "Allied/Other Facilities 3/3",
                       alignment: Alignment.center,
                       textStyle: AppTextStyles.middleBlackBoldTextStyle,
                     ),
@@ -60,9 +62,9 @@ class InstituteFacilities3 extends HookConsumerWidget {
                           // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                         ),
                         CustomToggleSwitch(
-                          value: _switchValue.value,
+                          value: _switchValue1.value,
                           onChanged: (bool value) {
-                            _switchValue.value = value;
+                            _switchValue1.value = value;
                           },
                         ),
                       ],
@@ -75,13 +77,13 @@ class InstituteFacilities3 extends HookConsumerWidget {
                           child: CustomTextField(
                             label: "Remarks",
                             fillColor: AppColors.primaryWhite,
-                          //  borderColor: AppColors.primaryBlack,
+                            borderColor: AppColors.primaryBlack,
                             controller: source.resumePath,
                            // enabled: false,
                             textCapitalization: TextCapitalization.none,
                           ),
                         ),
-                        6.ph,
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
@@ -106,9 +108,9 @@ class InstituteFacilities3 extends HookConsumerWidget {
                           // textStyle: AppTextStyles.middleBlackBoldTextStyle,
                         ),
                         CustomToggleSwitch(
-                          value: _switchValue.value,
+                          value: _switchValue2.value,
                           onChanged: (bool value) {
-                            _switchValue.value = value;
+                            _switchValue2.value = value;
                           },
                         ),
                       ],
@@ -120,13 +122,13 @@ class InstituteFacilities3 extends HookConsumerWidget {
                           child: CustomTextField(
                             label: "Remarks",
                             fillColor: AppColors.primaryWhite,
-                          //  borderColor: AppColors.primaryBlack,
+                            borderColor: AppColors.primaryBlack,
                             controller: source.resumePath,
                            // enabled: false,
                             textCapitalization: TextCapitalization.none,
                           ),
                         ),
-                        6.ph,
+                        6.pw,
                         ClipBox(
                           onTap: () {
                             source.pickResume();
@@ -141,14 +143,18 @@ class InstituteFacilities3 extends HookConsumerWidget {
                       },
                       pickedFile: source.loadedImageOne,
                     ),
-                    
-                      
+
+
                     8.ph,
                     PrimaryButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          // Handle the form submission
-                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const InstituteHome()),
+                          );
+                        }
+                        else {
                           Prompts.popMessenger("Please input correct information");
                         }
                       },

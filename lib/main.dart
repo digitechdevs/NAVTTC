@@ -43,7 +43,7 @@ class Navttc extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
           useMaterial3: true,
         ),
-        home: const InstituteHome(),
+        home: const LoginScreen(),
       ),
     );
   }

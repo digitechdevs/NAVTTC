@@ -22,6 +22,7 @@ import 'package:navttc/src/services/app_services/field_services.dart';
 import '../../../../components/prompts.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../student/presentation/screens/student_home.dart';
+import 'instructor_trade_profile.dart';
 
 class InstituteAddEditPrinciple extends HookConsumerWidget {
   const InstituteAddEditPrinciple({super.key});
@@ -84,15 +85,12 @@ class InstituteAddEditPrinciple extends HookConsumerWidget {
 
                       
                     ),
-                   
+
                     8.ph,
                     PrimaryButton(
                       onTap: () {
-                                    if (formKey.currentState!.validate()) {   
-                                    } else {
-                                      Prompts.popMessenger("Please input correct information");
-                                    }
-                                  },
+                          Navigator.pop(context);
+                      },
                       text: 'SAVE',
                     ),
                     kBottomNavigationBarHeight.ph,

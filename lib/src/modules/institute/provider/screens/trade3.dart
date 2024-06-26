@@ -120,7 +120,7 @@ class Institutetrade3 extends HookConsumerWidget {
                         // controller: email,
                         textCapitalization: TextCapitalization.sentences,  
                       ),
-                      6.ph,
+                      8.ph,
                         ClipBox(
                           width: 373.75,
                           height: 64.01,

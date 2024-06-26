@@ -62,9 +62,6 @@ class Institutetrade extends HookConsumerWidget {
                           MaterialPageRoute(builder: (context) => Institutetrade1()),
                         );
                       },
-                      
-                    
-                    
                     ),
                     8.ph,
                     SelectableTile(
