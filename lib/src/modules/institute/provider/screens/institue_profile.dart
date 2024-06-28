@@ -151,12 +151,9 @@ class InstituteProfile extends HookConsumerWidget {
                     8.ph,
                     PrimaryButton(
                       onTap: () {
-                        if (formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InstituteProfile2()),
-                          );
-                        }
+                        AppRouter.push(const InstituteProfile2());
+
+                        if (formKey.currentState!.validate()) ;
                         else {
                           Prompts.popMessenger("Please input correct information");
                         }

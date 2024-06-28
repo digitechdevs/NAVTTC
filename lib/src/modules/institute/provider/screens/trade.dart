@@ -124,8 +124,12 @@ class Institutetrade extends HookConsumerWidget {
                     8.ph,
                     PrimaryButton(
                       onTap: () {
-                                    if (formKey.currentState!.validate()) {   
-                                    } else {
+                        Navigator.pop(context);
+
+
+                        if (formKey.currentState!.validate()) {
+                                    }
+                                    else {
                                       Prompts.popMessenger("Please input correct information");
                                     }
                                   },

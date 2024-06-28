@@ -18,7 +18,9 @@ import 'package:navttc/src/modules/instructor/presentation/providers/instructor_
 import 'package:navttc/src/services/app_services/field_services.dart';
 
 import '../../../../components/prompts.dart';
+import '../../../../components/value_box.dart';
 import '../../../../core/utils/app_enums.dart';
+import '../../../../core/utils/app_helpers.dart';
 import '../../../student/presentation/screens/student_home.dart';
 import '../institie_provider.dart';
 import 'institue_home.dart';
@@ -28,6 +30,11 @@ class InstituteDetail extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final startDate = useState<DateTime?>(null);
+    final endDate = useState<DateTime?>(null);
+    final startTime = useState<TimeOfDay?>(null);
+
+
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     var source = ref.watch(instituteProvider);
@@ -158,15 +165,25 @@ class InstituteDetail extends HookConsumerWidget {
                       enabled: false,
 
                     ),
-                    8.ph,
-                    CustomTextField(
-                      prefixIcon: Icon(Icons.calendar_month),
-                      label: "21-05-2024",
-                      fillColor: AppColors.primaryWhite,
-                      textCapitalization: TextCapitalization.none,
-                      enabled: false,
-
+                8.ph,
+                Row(
+                  children: [
+                    Expanded(
+                      child: ValueBox(
+                        value: startDate.value != null
+                            ? '${startDate.value!.day}/${startDate.value!.month}/${startDate.value!.year}'
+                            : "Date",
+                        icon: CupertinoIcons.calendar_today,
+                        onTap: () => AppHelpers.handleDateTimePicker(
+                          context,
+                          startDate,
+                          startTime,
+                          true,
+                        ),
+                      ),
                     ),
+                    ],
+                ),
                     8.ph,
                     PrimaryButton(
                       onTap: () {

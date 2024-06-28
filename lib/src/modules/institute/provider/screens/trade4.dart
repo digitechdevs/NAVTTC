@@ -20,6 +20,7 @@ import 'package:navttc/src/services/app_services/field_services.dart';
 import '../../../../components/custom_toggle_switch.dart';
 import '../../../../components/prompts.dart';
 import 'allied_other_facilities2.dart';
+import 'institue_home.dart';
 
 class Institutetrade4 extends HookConsumerWidget {
   const Institutetrade4({super.key});
@@ -156,14 +157,13 @@ class Institutetrade4 extends HookConsumerWidget {
                    PrimaryButton(
 
                       onTap: () {
+                   //     Navigator.pop(context);
+                        AppRouter.push(const InstituteHome());
+
+
 
                         if (!formKey.currentState!.validate());
-                        //  {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(builder: (context) => const InstituteFacilities2()),
-                        //   );
-                        // }
+
                         else {
                           Prompts.popMessenger("Please input correct information");
                         }

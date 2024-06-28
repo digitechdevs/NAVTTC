@@ -23,6 +23,8 @@ class LoginScreen extends HookWidget {
   Widget build(context) {
     var email = useTextEditingController();
     var pass = useTextEditingController();
+    var id = useTextEditingController();
+
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -80,9 +82,9 @@ class LoginScreen extends HookWidget {
                               if (auth.selectedRole == Role.Institute.name)
                               CustomTextField(
                                 label: "Institute Id",
-                                controller: email,
+                                controller: id,
                                 textCapitalization: TextCapitalization.none,
-                                validator: Validator.validateEmail,
+                                validator: Validator.validateEmpty,
                               ),
                               if (auth.selectedRole == Role.Institute.name)
                               30.ph,

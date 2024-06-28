@@ -20,7 +20,7 @@ class ClipBox extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width ?? 62.w,
-        height: height?? 56,
+        height: height?? 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: AppColors.subtitle),

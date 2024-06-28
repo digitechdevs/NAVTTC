@@ -92,12 +92,9 @@ class InstituteAddEdit2 extends HookConsumerWidget {
                     8.ph,
                     PrimaryButton(
                       onTap: () {
-                        if (formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InstituteHome()),
-                          );
-                        }
+                        AppRouter.push(const InstituteHome());
+
+                        if (formKey.currentState!.validate());
                         else {
                           Prompts.popMessenger("Please input correct information");
                         }

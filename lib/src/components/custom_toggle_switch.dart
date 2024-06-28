@@ -14,12 +14,12 @@ class CustomToggleSwitch extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-      return  CupertinoSwitch(
-              value: value,
-              onChanged: onChanged,
-              activeColor: CupertinoColors.activeGreen,
-              trackColor: CupertinoColors.inactiveGray,
-            );
+    return CupertinoSwitch(
+      value: value,
+      onChanged: onChanged,
+      activeColor: CupertinoColors.activeGreen,
+      trackColor: CupertinoColors.inactiveGray,
+    );
     // return GestureDetector(
     //   onTap: () => onChanged(!value),
     //   child: Container(

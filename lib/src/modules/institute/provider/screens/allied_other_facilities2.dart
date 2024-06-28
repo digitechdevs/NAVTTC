@@ -146,6 +146,7 @@ class InstituteFacilities2 extends HookConsumerWidget {
                     6.pw,
                         ClipBox(
                             width:373,
+                          text: 'Upload',
                           onTap: () {
                             source.pickResume();
                           },
@@ -205,12 +206,10 @@ class InstituteFacilities2 extends HookConsumerWidget {
                     8.ph,
                    PrimaryButton(
                       onTap: () {
-                        if (!formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const InstituteFacilities3()),
-                          );
-                        } else {
+                        AppRouter.push(const InstituteFacilities3());
+
+                        if (!formKey.currentState!.validate()) ;
+                        else {
                           Prompts.popMessenger("Please input correct information");
                         }
                       },

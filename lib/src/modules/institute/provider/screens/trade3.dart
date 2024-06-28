@@ -138,13 +138,10 @@ class Institutetrade3 extends HookConsumerWidget {
                     8.ph,
                    PrimaryButton(
                       onTap: () {
-                        if (!formKey.currentState!.validate())
-                         {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const Institutetrade4()),
-                          );
-                        } else {
+                        AppRouter.push(const Institutetrade4());
+
+                        if (!formKey.currentState!.validate());
+                         else {
                           Prompts.popMessenger("Please input correct information");
                         }
                       },

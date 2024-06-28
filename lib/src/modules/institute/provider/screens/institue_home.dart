@@ -78,7 +78,6 @@ class InstituteHome extends StatelessWidget {
                         // loader: true,
                         text: "SUBMIT",
                         onTap: () {
-                         // AppRouter.pushAndRemoveUntil(const LoginScreen());
                         },
                       ),
                       50.ph,
@@ -86,7 +85,7 @@ class InstituteHome extends StatelessWidget {
                         // loader: true,
                         text: "Log out",
                         onTap: () {
-                         // AppRouter.pushAndRemoveUntil(const LoginScreen());
+                          AppRouter.pushAndRemoveUntil(const LoginScreen());
                         },
                       ),
                       

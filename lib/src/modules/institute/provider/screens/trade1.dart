@@ -43,7 +43,6 @@ class Institutetrade1 extends HookConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.sp),
               child: Form(
-                key: formKey,
                 child: Column(
                   children: [
                     CustomText(
@@ -126,12 +125,11 @@ class Institutetrade1 extends HookConsumerWidget {
                     8.ph,
                    PrimaryButton(
                       onTap: () {
-                        if (!formKey.currentState!.validate()) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const Institutetrade2()),
-                          );
-                        } else {
+                        AppRouter.push(const Institutetrade2());
+
+                        if (!formKey.currentState!.validate());
+
+                        else {
                           Prompts.popMessenger("Please input correct information");
                         }
                       },
